@@ -24,7 +24,7 @@
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/Image-Document-Perspective-Warper.git
+git clone https://github.com/T-UwU/Image-Document-Perspective-Warper.git
 ```
 
 2. Navega al directorio del proyecto:
