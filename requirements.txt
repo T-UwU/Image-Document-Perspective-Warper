@@ -1,0 +1,4 @@
+tkinterdnd2
+Pillow
+numpy
+opencv-python
