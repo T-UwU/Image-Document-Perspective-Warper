@@ -44,7 +44,7 @@ pip install -r requirements.txt
 1. Ejecuta el script principal:
 
 ```bash
-python src/image_document_perspective_warper.py
+python image_document_perspective_warper.py
 ```
 
 2. Usa el botón "Cargar Imágenes" para seleccionar múltiples imágenes de documentos.
