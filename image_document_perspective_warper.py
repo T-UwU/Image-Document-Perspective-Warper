@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import ttk
 from tkinterdnd2 import DND_FILES, TkinterDnD
@@ -15,7 +16,7 @@ class ImageEditor:
         - root (Tk): La ventana principal de la aplicación.
         """
         self.root = root
-        self.root.title("Editor de Imágenes")
+        self.root.title("Image Document Perspective Warper")
         self.root.geometry("1200x800")
 
         # Configuración de estilo para ttk
@@ -356,17 +357,15 @@ class ImageEditor:
         points = np.array(points)
         rect = np.zeros((4, 2), dtype="float32")
 
-        # La suma de las coordenadas x e y encuentra los puntos top-left (mínimo)
-        # y bottom-right (máximo).
+        # La suma de las coordenadas x e y encuentra los puntos top-left (mínimo) y bottom-right (máximo).
         s = points.sum(axis=1)
-        rect[0] = points[np.argmin(s)]
-        rect[2] = points[np.argmax(s)]
+        rect[0] = points[np.argmin(s)]  # top-left
+        rect[2] = points[np.argmax(s)]  # bottom-right
 
-        # La diferencia entre las coordenadas x e y encuentra los puntos top-right (mínimo)
-        # y bottom-left (máximo).
+        # La diferencia entre las coordenadas x e y encuentra los puntos top-right (mínimo) y bottom-left (máximo).
         diff = np.diff(points, axis=1)
-        rect[1] = points[np.argmin(diff)]
-        rect[3] = points[np.argmax(diff)]
+        rect[1] = points[np.argmin(diff)]  # top-right
+        rect[3] = points[np.argmax(diff)]  # bottom-left
 
         return rect
 
@@ -453,6 +452,10 @@ class ImageEditor:
         # Args:
         - folder (str): La carpeta donde se guardará la imagen.
         """
+        # Crear la carpeta si no existe
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
         if self.image and self.image_paths:
             filename = self.image_paths[self.current_image_index].split("/")[-1]
             save_path = f"{folder}/{filename}"
