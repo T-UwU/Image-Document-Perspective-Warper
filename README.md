@@ -61,4 +61,4 @@ Las contribuciones son bienvenidas. Por favor, abre un issue o envía un pull re
 
 ## Licencia
 
-Este proyecto está licenciado bajo la The Unlicense.
+Este proyecto está licenciado bajo la licencia "The Unlicense".
